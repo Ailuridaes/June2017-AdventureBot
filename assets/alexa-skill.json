@@ -146,6 +146,14 @@
         "yay"
       ],
       "slots": []
+    },
+    {
+      "name": "Swim",
+      "samples": [
+        "swim",
+        "go swimming"
+      ],
+      "slots": []
     }
   ]
 }

@@ -35,10 +35,10 @@
         },
         "end-room-good": {
             "description": "You made it to the beach! Congratulations!",
-            "instructions": "You may say \"leave\" to finish the story and go for a swim.",
+            "instructions": "You may say \"leave\" to go for a swim.",
             "finished": true,
             "choices": {
-                "leave": [
+                "quit": [
                     { "say": "As you walk to the sea to go for a swim, you stop to look at a shiny seashell." },
                     { "pause": 0.5 },
                     { "say": "And then a meteor descends upon you from the heavens, killing you instantly." }

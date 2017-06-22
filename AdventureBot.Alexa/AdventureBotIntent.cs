@@ -40,5 +40,7 @@ namespace AdventureBot.Alexa {
         public const string Describe = "Describe";
         public const string Hint = "Hint";
         public const string Restart = "Restart";
+        public const string Swim = "Restart";
+        public const string Leave = "Restart";
     }
 }
