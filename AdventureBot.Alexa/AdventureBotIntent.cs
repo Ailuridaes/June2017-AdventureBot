@@ -30,7 +30,7 @@ namespace AdventureBot.Alexa {
         public const string Option2 = "OptionTwo";
         public const string Option3 = "OptionThree";
         public const string Option4 = "OptionFour";
-        public const string Option5 = "OptionFie";
+        public const string Option5 = "OptionFive";
         public const string Option6 = "OptionSix";
         public const string Option7 = "OptionSeven";
         public const string Option8 = "OptionEight";

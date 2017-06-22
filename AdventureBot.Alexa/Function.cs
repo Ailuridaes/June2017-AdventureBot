@@ -153,6 +153,14 @@ namespace AdventureBot.Alexa {
                     }
                 }
 
+                if(responses.Any(r => r is GameResponseFinished)) {
+                    await _snsClient.PublishAsync(new PublishRequest {
+                        Subject = "Congratulations!",
+                        Message = "Somebody finished your adventure!",
+                        TopicArn = "arn:aws:sns:us-east-1:{REDACTED}:adventureBot"
+                    });
+                }
+
                 // respond with serialized player state
                 if(reprompt != null) {
                     return ResponseBuilder.Ask(
@@ -167,11 +175,6 @@ namespace AdventureBot.Alexa {
 
             // skill session ended (no response expected)
             case SessionEndedRequest ended:
-                await _snsClient.PublishAsync(new PublishRequest {
-                    Subject = "Congratulations!",
-                    Message = "You have finished the story!",
-                    TopicArn = "arn:aws:sns:us-east-1:875124658068:AdventureBot"
-                });
                 LambdaLogger.Log("*** INFO: session ended\n");
                 return ResponseBuilder.Empty();
 
@@ -208,8 +211,7 @@ namespace AdventureBot.Alexa {
                     ssml.Add(new XElement("p", new XText("Good bye.")));
                     break;
                 case GameResponseFinished _:
-
-                    // TODO: player is done with the adventure
+                    ssml.Add(new XElement("p", new XText("Congratulations! You completed the game!")));
                     break;
                 case null:
                     LambdaLogger.Log($"ERROR: null response\n");
