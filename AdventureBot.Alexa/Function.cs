@@ -38,6 +38,7 @@ using Amazon.DynamoDBv2;
 using Amazon.Lambda.Core;
 using Amazon.S3;
 using Amazon.SimpleNotificationService;
+using Amazon.SimpleNotificationService.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -86,7 +87,7 @@ namespace AdventureBot.Alexa {
         }
 
         //--- Methods ---
-        public SkillResponse FunctionHandler(SkillRequest skill, ILambdaContext context) {
+        public async Task<SkillResponse> FunctionHandler(SkillRequest skill, ILambdaContext context) {
 
             // load adventure from S3
             var game = GameLoader.Parse(ReadTextFromS3(_s3Client, _adventureFileBucket, _adventureFilePath));
@@ -166,6 +167,11 @@ namespace AdventureBot.Alexa {
 
             // skill session ended (no response expected)
             case SessionEndedRequest ended:
+                await _snsClient.PublishAsync(new PublishRequest {
+                    Subject = "Congratulations!",
+                    Message = "You have finished the story!",
+                    TopicArn = "arn:aws:sns:us-east-1:875124658068:AdventureBot"
+                });
                 LambdaLogger.Log("*** INFO: session ended\n");
                 return ResponseBuilder.Empty();
 
