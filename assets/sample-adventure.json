@@ -18,7 +18,7 @@
             }
         },
         "room2": {
-            "description": "You are in the creepy white van. The driver is going to the beach. This is your last chance to run away.",
+            "description": "You are now in the creepy white van. The strange driver is going to the beach. This is your last chance to run away.",
             "instructions": "To run away, say 1. To have a beachin' good time, say 2.",
             "finished": false,
             "choices": {
