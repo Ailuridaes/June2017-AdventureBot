@@ -1,25 +1,25 @@
 {
     "places": {
         "start": {
-            "description": "You are in a dark room. The air feels stale. You see a flicker of light to the North.",
-            "instructions": "To go North, say 1. To wait and see what happens, say 2.",
+            "description": "You are hitch hiking on a desolate road. A white van pulls over. The driver offers you a ride.",
+            "instructions": "To get in, say 1. To wait and see what happens, say 2.",
             "finished": false,
             "choices": {
                 "1": [
-                    { "say": "You cautiously walk towards the North." },
+                    { "say": "You get in the white van." },
                     { "goto": "room2" }
                 ],
                 "2": [
                     { "goto": "end-room-bad" }
                 ],
                 "hint": [
-                    { "say": "You get the feeling that if you stay here, you will not be for long..." }
+                    { "say": "You get the feeling that you just dodged a bad situation..." }
                 ]
             }
         },
         "room2": {
-            "description": "You are in dimly lit room. The air feels a bit fresher. There is a breeze coming from the East.",
-            "instructions": "To go back South, say 1. To proceed East, say 2.",
+            "description": "You are in the creepy white van. The driver is going to the beach. This is your last chance to run away.",
+            "instructions": "To run away, say 1. To have a beachin' good time, say 2.",
             "finished": false,
             "choices": {
                 "1": [
@@ -29,29 +29,29 @@
                     { "goto": "end-room-good" }
                 ],
                 "hint":[
-                    { "say": "You feel like you're out of immediate danger now." }
+                    { "say": "You pass a troupe of angry, rabid monkeys and you are happy that you stayed in the van." }
                 ]
             }
         },
         "end-room-good": {
-            "description": "You found the exit! Congratulations!",
-            "instructions": "You may say \"restart\" to start over or say \"leave\" to end the adventure.",
+            "description": "You made it to the beach! Congratulations!",
+            "instructions": "You may say \"swim\" to go for a swim or say \"sand\" to sit in the sand.",
             "finished": true,
             "choices": {
-                "restart": [
-                    { "say": "You feel like the world is beginning to spin around you." },
+                "swim": [
+                    { "say": "As you walk to the sea to go for a swim, you stop to look at a shiny seashell." },
                     { "pause": 0.5 },
-                    { "say": "And then it's gone!" }
+                    { "say": "And then a meteor descends upon you from the heavens, killing you instantly." }
                 ]
             }
         },
         "end-room-bad": {
-            "description": "Before you know it, the air turns toxic and you suffocate. You've died.",
+            "description": "Before you know it, a meteor descends from the heavens and kills you in a fiery blaze.",
             "instructions": "You may say \"restart\" to start over or say \"leave\" to end the adventure.",
             "finished": true,
             "choices": {
                 "restart": [
-                    { "say": "It feels like a hand is reaching out from the light and pulls you back." },
+                    { "say": "You are reincarnated as a beach bound hitch hiker." },
                     { "pause": 0.5 },
                     { "say": "And then..." }
                 ]
